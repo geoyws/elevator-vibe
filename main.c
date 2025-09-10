@@ -207,7 +207,8 @@ void draw_building()
   {
     int y = WINDOW_HEIGHT - i * FLOOR_HEIGHT;
     DrawRectangle(200, y, 400, FLOOR_HEIGHT, Fade(SKYBLUE, 0.5f));
-    DrawText(TextFormat("Floor %d", i), 390, y + 10, 20, DARKBLUE);
+    DrawRectangleLines(200, y, 400, FLOOR_HEIGHT, BLACK);
+    DrawText(TextFormat("Floor %d", i), 450, y + 15, 24, BLACK);
     // Draw buttons
     if (i == 1)
     {
