@@ -45,7 +45,7 @@ Elevator elevator;
 void init_elevator()
 {
   elevator.floor = 1;
-  elevator.y = WINDOW_HEIGHT - FLOOR_HEIGHT - ELEVATOR_HEIGHT;
+  elevator.y = WINDOW_HEIGHT - FLOOR_HEIGHT + (FLOOR_HEIGHT - ELEVATOR_HEIGHT);
   elevator.moving = false;
   elevator.direction = 0;
   elevator.speed = 2.0f;
@@ -170,7 +170,7 @@ void update_elevator()
   {
     elevator.moving = true;
     elevator.door_position = 0.0f; // Close doors when moving
-    float target_y = WINDOW_HEIGHT - (next_target * FLOOR_HEIGHT) - ELEVATOR_HEIGHT;
+    float target_y = WINDOW_HEIGHT - (next_target * FLOOR_HEIGHT) + (FLOOR_HEIGHT - ELEVATOR_HEIGHT);
     elevator.direction = (target_y < elevator.y) ? -1 : 1;
     elevator.y += elevator.direction * elevator.speed;
     if ((elevator.direction == -1 && elevator.y <= target_y) ||
